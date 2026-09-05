@@ -59,10 +59,10 @@ jobs:
             --title "X00TD Kernel - $NAME" \
             --notes "Auto-built **ASUS Zenfone Max Pro M1 (X00TD)** kernel (${{ github.repository }}@${{ github.sha }})
 
-- File: \`$NAME\`
-- Size: \`$SIZE\`
-- MD5: \`$MD5\`
-- Built at: \`$DATE\`
+- File: $NAME
+- Size: $SIZE
+- MD5: $MD5
+- Built at: $DATE
 
 Flash via custom recovery (AnyKernel3)."
 
