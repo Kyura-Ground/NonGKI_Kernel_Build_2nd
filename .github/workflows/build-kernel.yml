@@ -126,3 +126,11 @@ jobs:
       fail-fast: true
     uses: ./.github/workflows/build-nothing-phone-1-lineageos23-a16.yml
     secrets: inherit
+
+  # Asus
+  build-asus-zenfone-max-pro-m1-lineageos23-a16:
+    name: "Asus Zenfone Max Pro M1 (LineageOS 23.2 A16)"
+    strategy:
+      fail-fast: true
+    uses: ./.github/workflows/build-asus-zenfone-max-pro-m1-lineageos23-a16.yml
+    secrets: inherit
