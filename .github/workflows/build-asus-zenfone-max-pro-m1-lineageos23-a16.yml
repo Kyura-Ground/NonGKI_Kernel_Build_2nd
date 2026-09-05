@@ -119,6 +119,12 @@ jobs:
           patch -p1 --forward < susfs_patch_to_4.19_x00td.patch
           rm -f susfs_patch_to_4.19_x00td.patch
 
+          # Provide the ksu_handle_* hook call sites required by ReSukiSU's
+          # "SuSFS Inline" hook (drivers/kernelsu inline_hook_check.mk)
+          cp /tmp/Patches/Patch/ksu_hooks_to_4.19_x00td.patch ./
+          patch -p1 --forward < ksu_hooks_to_4.19_x00td.patch
+          rm -f ksu_hooks_to_4.19_x00td.patch
+
           # Enable SusFS configs (CONFIG_KSU_SUSFS=y is already set by build-ready)
           echo "CONFIG_KSU_SUSFS_SUS_PATH=y" >> ./arch/arm64/configs/${{ env.DEFCONFIG_NAME }}
           echo "CONFIG_KSU_SUSFS_SUS_MOUNT=y" >> ./arch/arm64/configs/${{ env.DEFCONFIG_NAME }}
