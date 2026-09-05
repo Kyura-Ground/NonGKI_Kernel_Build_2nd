@@ -54,16 +54,20 @@ jobs:
           SIZE=$(du -h "$ZIP" | cut -f1)
           DATE=$(date)
 
+          {
+            echo "Auto-built **ASUS Zenfone Max Pro M1 (X00TD)** kernel (${{ github.repository }}@${{ github.sha }})"
+            echo
+            echo "- File: $NAME"
+            echo "- Size: $SIZE"
+            echo "- MD5: $MD5"
+            echo "- Built at: $DATE"
+            echo
+            echo "Flash via custom recovery (AnyKernel3)."
+          } > notes.md
+
           gh release create "$TAG" "$ZIP" \
             --repo "$GITHUB_REPOSITORY" \
             --title "X00TD Kernel - $NAME" \
-            --notes "Auto-built **ASUS Zenfone Max Pro M1 (X00TD)** kernel (${{ github.repository }}@${{ github.sha }})
-
-- File: $NAME
-- Size: $SIZE
-- MD5: $MD5
-- Built at: $DATE
-
-Flash via custom recovery (AnyKernel3)."
+            --notes-file notes.md
 
           echo "✅ Released tag: $TAG"
